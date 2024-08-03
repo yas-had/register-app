@@ -6,15 +6,15 @@ pipeline {
     }
     stages{
         stage("Cleanup Workspace"){
-                steps {
+            steps {
                 cleanWs()
-                }
+            }
         }
 
         stage("Checkout from SCM"){
-                steps {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/yas-had/register-app'
-                }
+            steps {
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/yas-had/register-app'
+            }
         }
 
         stage("Build Application"){
@@ -29,3 +29,5 @@ pipeline {
                  sh "mvn test"
            }
        }
+    }
+}
